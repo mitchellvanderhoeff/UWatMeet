@@ -4,5 +4,6 @@
 
 1. Clone repo
 2. Install Node.js
-3. Run `node main.js`
-4. Load `localhost:8080` in a browser
+3. Run `npm install`
+4. Run `node main.js`
+5. Load `localhost:8080` in a browser

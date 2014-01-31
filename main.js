@@ -133,7 +133,7 @@ app.get('/building/find_nearby', function(req, res) {
  * -- FRONT-END --
  */
 
-app.use('/', express.static(__dirname + '/web'));
+app.use('/', express.static(__dirname + '/app'));
 app.get('/login', function(req, res) {
     res.redirect('/web/index.html#login')
 });
