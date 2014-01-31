@@ -5,8 +5,6 @@
 var Hub = require('./hub');
 var buildings = Hub.collection('buildings');
 
-var secure_callback = require('./secure_callback');
-
 var _ = require('underscore');
 var Unirest = require('unirest');
 
@@ -54,7 +52,7 @@ me.fetch_building = function(building_code, callback) {
 	building_code = building_code.toUpperCase().replace(/\w/g, '');
     buildings.findOne({
 		"building_code": building_code
-	}, secure_callback(callback))
+	}, callback)
 };
 
 me.find_nearby = function(longitude, latitude, callback) {
@@ -73,7 +71,7 @@ me.find_nearby = function(longitude, latitude, callback) {
 			}
 		}
 	};
-	buildings.find(query).toArray(secure_callback(callback));
+	buildings.find(query).toArray(callback);
 };
 
 me.reload();

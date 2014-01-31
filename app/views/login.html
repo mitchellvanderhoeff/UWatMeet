@@ -1,3 +1,16 @@
-<div class="form-group">
-
+<div class="row">&nbsp;</div>
+<div class="col-md-4 well">
+    <h2>UWatMeet</h2>
+    <form>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="UWID" ng-model="uwid">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" ng-model="password">
+        </div>
+        <div class="row">
+            <button class="btn btn-primary" ng-click="login(uwid, password)">Login</button>
+            <a href="" ng-click="register()">Sign up</a>
+        </div>
+    </form>
 </div>

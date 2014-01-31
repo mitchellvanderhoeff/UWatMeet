@@ -5,8 +5,6 @@
 var Hub = require('./hub');
 var users = Hub.collection('users');
 
-var secure_callback = require('./secure_callback');
-	
 var _ = require('underscore');
 var Crypto = require('cryptojs').Crypto;
 var keylen = 128 / 8;
@@ -22,7 +20,7 @@ me.register = function(uwid, password, callback) {
 		"salt": Crypto.bytesToHex(salt),
 		"passkey": Crypto.bytesToHex(passkey),
 		"verified": true // TODO: dangerous, remove
-	}, secure_callback(callback));
+	}, callback);
 };
 
 me.find_user = function(uwid, callback) {
@@ -40,4 +38,4 @@ me.find_user = function(uwid, callback) {
 		};
 		callback(null, user);
 	})
-}
+};

@@ -35,7 +35,7 @@ passport.use(new LocalStrategy(
 app.configure(function() {
 	app.use(express.cookieParser());
 	app.use(express.bodyParser());
-	app.use(express.session({ secret: 'je ma is een dikke anusappel' }));
+	app.use(express.session({ secret: 'je ma is een dikke aarsappel' }));
 	app.use(passport.initialize());
 	app.use(passport.session());
 	app.use(app.router);

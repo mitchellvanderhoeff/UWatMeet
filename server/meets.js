@@ -5,8 +5,6 @@
 var Hub = require('./hub');
 var meets = Hub.collection('meets');
 
-var secure_callback = require('./secure_callback');
-	
 var _ = require('underscore');
 var auth = require('./users');
 
@@ -23,7 +21,7 @@ me.fetch_meets = function() {
 me.fetch_meet = function(id, callback) {
     meets.findOne({
 			_id: ObjectId(id)
-		}, secure_callback(callback));
+		}, callback);
 };
 
 me.create_meet = function(user, meet, callback) {
@@ -47,7 +45,7 @@ me.create_meet = function(user, meet, callback) {
 	meet.people = [meet.creator];
 	meet.comments = [];
 
-	meets.insert(meet, secure_callback(callback));
+	meets.insert(meet, callback);
 };
 
 me.add_comment = function(user, token, comment, callback) {
@@ -73,5 +71,5 @@ me.add_comment = function(user, token, comment, callback) {
 		_id: ObjectId(targetMeetID)
 	}, {
 		$push: { comments: comment }
-	}, secure_callback(callback));
+	}, callback);
 };
